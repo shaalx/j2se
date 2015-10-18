@@ -1,21 +1,22 @@
 package queue;
 
+import java.util.Comparator;
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
 public class QUEUE {
 	public static void main(String[] args) {
 //		BlockingQueue<Integer> bq = new ArrayBlockingQueue<Integer>(5);
 //		BlockingQueue<Integer> bq = new LinkedBlockingQueue<Integer>(5);
-//		BlockingQueue<Integer> bq = new PriorityBlockingQueue<>(5, new Comparator<Integer>() {
-//
-//			@Override
-//			public int compare(Integer o1, Integer o2) {
-//				return o2-o1;
-//			}
-//		});
-		BlockingQueue<Integer> bq = new SynchronousQueue<Integer>();
+		BlockingQueue<Integer> bq = new PriorityBlockingQueue<>(5, new Comparator<Integer>() {
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				return o2-o1;
+			}
+		});
+//		BlockingQueue<Integer> bq = new SynchronousQueue<Integer>();
 		new Thread(new ProductThread(bq)).start();
 		new Thread(new ProductThread(bq)).start();
 		new Thread(new ConsumeThread(bq)).start();
