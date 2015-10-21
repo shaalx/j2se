@@ -5,22 +5,24 @@ public class BubbleSort implements Sort{
 	@Override
 	public void Sort(int[] arr) {
 		int len = arr.length;
-		int min;
-		int flag;
-		for (int i = 0; i < len-1; i++) {
-			min = arr[i];
-			flag = i;
-			for (int j = i+1; j < len; j++) {
-				if (arr[j]<min) {
-					min = arr[j];
-					flag = j;
-				}
+		boolean sorted = false;
+		int j;
+		for(int i=len-1;i>0;--i){
+			sorted = false;
+			int x = arr[len-1];
+			for (j = len-2; j >=0 && arr[j]>x; --j) {
+				arr[j+1] = arr[j];
+				sorted = true;
 			}
-			if (flag!=i) {
-				int tmp = arr[i];
-				arr[i]=arr[flag];
-				arr[flag]=tmp;
+			if (!sorted) {
+				break;
 			}
+			arr[j+1] = x;
+
+			for(int v:arr){
+				System.out.print(v+"\t");
+			}
+			System.out.println();
 		}
 	}
 
