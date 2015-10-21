@@ -7,7 +7,9 @@ public class sorts {
 		//Sort iSort = new ShellSort();
 		//Sort iSort = new QuickSort();
 		//Sort iSort = new SelectSort();
-		Sort iSort = new BubbleSort();
+		//Sort iSort = new BubbleSort();
+		//Sort iSort = new HeapSort();
+		Sort iSort = new MergeSort();
 		int[] arr = new int[10];		
 		for (int i = 0; i < arr.length; i++) {
 			arr[i]=10-i;
